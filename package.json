@@ -1,0 +1,35 @@
+{
+  "name": "Cometa-WebApp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Onmerazam/Cometa-WebApp.git",
+  "author": "an <an@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "@stomp/stompjs": "^6.1.2",
+    "axios": "^1.2.2",
+    "sockjs-client": "^1.6.1",
+    "startbootstrap-sb-admin-2": "^4.1.4",
+    "vue": "^3.2.36",
+    "vue-axios": "^3.5.2",
+    "vue-resource": "^1.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "@nuxtjs/vuetify": "^1.12.3",
+    "@vue/compiler-sfc": "^3.2.45",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.3",
+    "deepmerge": "^4.2.2",
+    "sass": "~1.32",
+    "vue-loader": "^17.0.1",
+    "vue-style-loader": "^4.1.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/login" method="post" class="user">
+    <div class="form-group">
+
+        <input type="text" class="form-control form-control-user"
+               id="exampleInputEmail" name="username" aria-describedby="emailHelp"
+               placeholder="Логин">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control form-control-user"
+               id="exampleInputPassword" placeholder="Пароль">
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-checkbox small">
+            <input type="checkbox" class="custom-control-input" id="customCheck">
+            <label class="custom-control-label" for="customCheck">Запомнить меня</label>
+        </div>
+    </div>
+
+
+    <input type="submit" value="Отправить" class="btn btn-primary btn-user btn-block"/>
+    <hr>
+</form>
+<div class="text-center">
+    <a class="small" href="/registration">Создать аккаунт</a>
+</div>
+</body>
+</html>
