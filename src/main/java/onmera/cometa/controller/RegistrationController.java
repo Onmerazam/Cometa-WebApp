@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
 import java.util.Map;
@@ -15,12 +16,6 @@ import java.util.Map;
 public class RegistrationController {
     @Autowired
     private UserRepo userRepo;
-
-    @GetMapping("/registration")
-    public String registration(){
-        return "registration.html";
-    }
-
     @PostMapping("/registration")
     public String addUser(User user, Map<String,Object> model){
         User userFromDb = userRepo.findByUsername(user.getUsername());

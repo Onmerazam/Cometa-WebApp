@@ -1,12 +1,13 @@
 <template>
     <div>
         <input type="text" placeholder="Write something" v-model="text" />
+        <input type="file" placeholder="Write something"  />
         <input type="button" value="Save" @click="save" />
     </div>
 </template>
 
 <script>
-    import { sendMessage } from 'util/ws'
+    import { mapActions } from 'vuex'
 
 
     export default {
@@ -24,8 +25,19 @@
             }
         },
         methods: {
+            ...mapActions(['addMessageAction', 'updateMessageAction']),
             save() {
-                sendMessage({id: this.id, text: this.text})
+                const message = {
+                    id: this.id,
+                    text: this.text
+                }
+
+                if (this.id) {
+                    this.updateMessageAction(message)
+                } else {
+                    this.addMessageAction(message)
+                }
+
                 this.text = ''
                 this.id = ''
             }

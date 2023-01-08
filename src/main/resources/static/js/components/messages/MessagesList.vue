@@ -1,21 +1,19 @@
 <template>
     <div style="position: relative; width: 300px;">
-        <message-form :messages="messages"
-                      :messageAttr="message" />
-        <message-row v-for="message in messages"
+        <message-form :messageAttr="message" />
+        <message-row v-for="message in sortedMessages"
                      :key="message.id"
                      :message="message"
-                     :editMessage="editMessage"
-                     :deleteMessage="deleteMessage"
-                     :messages="messages" />
+                     :editMessage="editMessage" />
     </div>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
     import MessageRow from 'components/messages/MessageRow.vue'
     import MessageForm from 'components/messages/MessageForm.vue'
+
     export default {
-        props: ['messages'],
         components: {
             MessageRow,
             MessageForm
@@ -25,19 +23,10 @@
                 message: null
             }
         },
+        computed: mapGetters(['sortedMessages']),
         methods: {
             editMessage(message) {
                 this.message = message
-            },
-            deleteMessage(message) {
-
-                this.axios.delete('/message/' + message.id).then(result => {
-                    console.log(message.id)
-                    if (result.status == 200) {
-                        this.messages.splice(this.messages.indexOf(message), 1)
-
-                    }
-                })
             }
         }
     }
