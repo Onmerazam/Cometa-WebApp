@@ -3,7 +3,7 @@ import messagesApi from 'api/messages.js'
 
 const store = createStore({
   state: {
-    messages: frontendData.messages,
+    messages: [],
     profile: frontendData.profile
   },
   getters:{
@@ -34,7 +34,10 @@ const store = createStore({
                 ...state.messages.slice(removeIndex + 1)
             ]
         }
+    },
 
+    setMessages(state, messages){
+        state.messages = messages
     }
   },
   actions:{
@@ -62,7 +65,13 @@ const store = createStore({
         if (result.status == 200) {
             commit('removeMessageMutation', data)
         }
-
+    },
+    async getAllMessages( {commit} ){
+        const result = await messagesApi.getMessages()
+        const data = await result.data
+        if (result.status == 200) {
+            commit('setMessages', data)
+        }
 
     }
   }

@@ -11,4 +11,5 @@ export default {
     add: message =>  messages.post(messages.baseURL, message),
     update: message =>  messages.put(`${message.id}`, message),
     remove: id =>  messages.delete(`${id}`),
+    getMessages: () => messages.get(messages.baseURL),
 }
