@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -19,6 +20,11 @@ public class Message {
     private Long id;
     @JsonView(Views.IdName.class)
     private String text;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="message_img", joinColumns=@JoinColumn(name = "message_id"))
+    @Column(name="image_address")
+    private List<String> Images;
 
     public Long getId() {
         return id;
@@ -34,5 +40,13 @@ public class Message {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public List<String> getImages() {
+        return Images;
+    }
+
+    public void setImages(List<String> images) {
+        Images = images;
     }
 }

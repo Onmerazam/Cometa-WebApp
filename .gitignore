@@ -1,5 +1,6 @@
 /target/
 /node_modules/
+/target/classesgvb.,\c xp-0
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
