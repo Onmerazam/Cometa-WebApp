@@ -9,9 +9,10 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex'
+    import { mapGetters, mapActions } from 'vuex'
     import MessageRow from 'components/messages/MessageRow.vue'
     import MessageForm from 'components/messages/MessageForm.vue'
+    import mApi from 'api/messages'
 
     export default {
         components: {
@@ -25,9 +26,13 @@
         },
         computed: mapGetters(['sortedMessages']),
         methods: {
+            ...mapActions(['getAllMessages']),
             editMessage(message) {
                 this.message = message
             }
+        },
+        created () {
+            this.getAllMessages()
         }
     }
 </script>
